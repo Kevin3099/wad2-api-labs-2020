@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded())
 app.use(express.static('public'));
 app.use('/api/movies', moviesRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/genres', moviesRouter)
 app.use(errHandler);
 
 app.listen(port, () => {
