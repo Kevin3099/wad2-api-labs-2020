@@ -3,9 +3,10 @@ import express from 'express';
 import moviesRouter from './api/movies';
 import bodyParser from 'body-parser';
 import './db';
-import {loadUsers} from './seedData';
 import usersRouter from './api/users';
-
+import session from 'express-session';
+import authenticate from './authenticate';
+import {loadUsers} from './seedData';
 
 dotenv.config();
 
@@ -26,13 +27,21 @@ const app = express();
 
 const port = process.env.PORT;
 
+//session middleware
+app.use(session({
+  secret: 'ilikecake',
+  resave: true,
+  saveUninitialized: true
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded())
 app.use(express.static('public'));
-app.use('/api/movies', moviesRouter);
+app.use('/api/movies', authenticate, moviesRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/genres', moviesRouter)
 app.use(errHandler);
+
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
