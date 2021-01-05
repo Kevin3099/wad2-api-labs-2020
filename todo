@@ -1,5 +1,12 @@
-- Reformat login page as home
-- Add page links to once logged in
-- Add Assignment 1 home page and components in
-- Configure to work with new api
-- Add other pages
+Part 1 Auth and Login 
+
+- Site Header
+- Always goes to login page or sign up until signed in
+- Then redirects to blank page saying hi
+
+Part 2 API
+
+- Develop Contexts to use new API
+- Add new methods to API
+- Develop Components
+
