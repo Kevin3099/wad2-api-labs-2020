@@ -25,14 +25,6 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
-  export const getUpcoming = () => {
-    return fetch(
-       '/api/upcoming',{headers: {
-         'Authorization': window.localStorage.getItem('token')
-      }
-    }
-    ).then(res => res.json());
-  };
   export const getNowPlayingMovies = () => {
     return fetch(
        '/api/nowPlaying',{headers: {
@@ -41,9 +33,18 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
+  export const getUpcoming = () => {
+    return fetch(
+       '/api/upcoming',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
   export const getTopRatedMovies = () => {
     return fetch(
-       '/api/topRated',{headers: {
+       '/api/toprated',{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }

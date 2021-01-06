@@ -1,12 +1,6 @@
-Part 1 Auth and Login 
+- Add Top Rated and Now Playing
 
-- Site Header
-- Always goes to login page or sign up until signed in
-- Then redirects to blank page saying hi
+- Add Favorites Page with Button for Post / Get
+    -Adds to new Mongo Collection
 
-Part 2 API
-
-- Develop Contexts to use new API
-- Add new methods to API
-- Develop Components
-
+- Movie Details - Credits Using Mongo to Add

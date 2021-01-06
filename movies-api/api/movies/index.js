@@ -1,7 +1,7 @@
 import express from 'express';
 import movieModel from './movieModel';
 import {
-  getMovies, getMovie, getMovieReviews, getGenres, getUpcoming, getTopRatedMovies, getNowPlayingMovies
+  getMovies, getMovie, getMovieReviews, getGenres, getUpcomingMovies, getTopRatedMovies, getNowPlayingMovies
 } from '../tmdb-api';
 
 const router = express.Router();
@@ -29,18 +29,18 @@ router.get('/:id/reviews', (req, res, next) => {
 });
 
 router.get('/upcoming', (req, res,next) => {
-  getUpcoming()
+  getUpcomingMovies()
   .then(upcoming => res.status(200).send(upcoming))
   .catch((error) => next(error));
 });
-router.get('/nowPlaying', (req, res,next) => {
+router.get('/nowplaying', (req, res,next) => {
   getNowPlayingMovies()
-  .then(nowPlaying => res.status(200).send(nowPlaying))
+  .then(nowplaying => res.status(200).send(nowplaying))
   .catch((error) => next(error));
 });
-router.get('/topRated', (req, res,next) => {
+router.get('/toprated', (req, res,next) => {
   getTopRatedMovies()
-  .then(topRated => res.status(200).send(topRated))
+  .then(toprated => res.status(200).send(topeated))
   .catch((error) => next(error));
 });
 
