@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
-import { PublicPage, Movies, Profile, HomePage, TopRatedMovies, nowPlayingMovies, Upcoming } from "./pages/pages";
+import { PublicPage, Movies, Profile, HomePage, TopRatedMovies, Upcoming, NowPlayingMovies } from "./pages/pages";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import PrivateRoute from "./components/privateRoute";
@@ -34,6 +34,9 @@ const App = () => {
           <li>
             <Link to="/upcoming">Upcoming</Link>
           </li>
+          <li>
+            <Link to="/nowplaying">Now Playing</Link>
+          </li>
         </ul>
         <MovieProvider>
         <Switch>
@@ -45,6 +48,7 @@ const App = () => {
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/toprated" component={TopRatedMovies} />
           <PrivateRoute path="/upcoming" component={Upcoming} />
+          <PrivateRoute path="/nowplaying" component={NowPlayingMovies} />
           <Redirect from="*" to="/" />
         </Switch>
         </MovieProvider>

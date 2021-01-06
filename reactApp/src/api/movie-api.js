@@ -27,7 +27,7 @@ export const getMovies = () => {
   };
   export const getNowPlayingMovies = () => {
     return fetch(
-       '/api/nowPlaying',{headers: {
+       '/api/nowplaying',{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
