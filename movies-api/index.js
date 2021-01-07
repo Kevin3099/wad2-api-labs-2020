@@ -6,7 +6,7 @@ import './db';
 import usersRouter from './api/users';
 import session from 'express-session';
 import passport from './authenticate';
-import {loadUsers, loadMovies} from './seedData';
+import {loadUsers, loadMovies, loadUpcoming, loadTopRated, loadNowPlaying} from './seedData';
 
 dotenv.config();
 
@@ -23,6 +23,9 @@ const app = express();
 
 if (process.env.SEED_DB) {
   loadUsers();
+  loadUpcoming();
+  loadTopRated();
+  loadNowPlaying();
   loadMovies();
 }
 

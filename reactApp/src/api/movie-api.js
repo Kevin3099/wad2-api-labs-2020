@@ -27,7 +27,7 @@ export const getMovies = () => {
   };
   export const getNowPlayingMovies = () => {
     return fetch(
-       '/api/nowplaying',{headers: {
+       '/api/movies/nowplaying',{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -35,7 +35,7 @@ export const getMovies = () => {
   };
   export const getUpcoming = () => {
     return fetch(
-       '/api/upcoming',{headers: {
+       '/api/movies/upcoming',{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -44,7 +44,7 @@ export const getMovies = () => {
 
   export const getTopRatedMovies = () => {
     return fetch(
-       '/api/toprated',{headers: {
+       '/api/movies/toprated',{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }

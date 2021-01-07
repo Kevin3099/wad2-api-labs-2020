@@ -21,7 +21,7 @@ export const Upcoming = () => {
     return <>
         <h2>Upcoming Movies </h2>
         <div>
-            {context.upcoming.map(upcoming => { return <>{upcoming.id},{upcoming.title},<br /></> })}
+            {context.upcoming.map(upcoming => { return <>{upcoming.id},{upcoming.title}<br /></> })}
         </div>
     </>
 }
@@ -41,7 +41,7 @@ export const NowPlayingMovies = () => {
     return <>
         <h2>Now Playing Movies </h2>
         <div>
-            {context.nowplaying.map(nowplaying => { return <>{nowplaying.id},{nowplaying.title},<br /></> })}
+            {context.nowplaying.map(nowplaying => { return <>{nowplaying.id},{nowplaying.title}<br /></> })}
         </div>
     </>
 }
@@ -53,3 +53,4 @@ export const NowPlayingMovies = () => {
  export const HomePage = () => {
      return  <h2>Home page</h2>
  };
+ 

@@ -1,6 +1,2 @@
-- Add Top Rated and Now Playing
-
-- Add Favorites Page with Button for Post / Get
-    -Adds to new Mongo Collection
-
-- Movie Details - Credits Using Mongo to Add
+- Change to rely on Movies API not TMDB and use Mongo instead
+- Favorites in the app
