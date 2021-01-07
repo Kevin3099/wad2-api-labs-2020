@@ -13,6 +13,15 @@ const reducer = (state, action) => {
       return { toprated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming ], nowplaying: [...state.nowplaying]};
     case "load-nowplaying":
       return { nowplaying: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming ],toprated: [...state.toprated]}
+      case "add-favorite":
+      return {
+        movies: state.movies.map((m) =>
+          m.id === action.payload.movie.id ? { ...m, favorite: true } : m
+        ),
+        upcoming: [...state.upcoming],
+        nowplaying: [...state.nowplaying],
+        toprated: [...state.toprated]
+      };
     default:
       return state;
   }
@@ -22,6 +31,11 @@ const MoviesContextProvider = props => {
   const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], toprated: [], nowplaying: [] });
   const [authenticated, setAuthenticated] = useState(false);
 
+  const addToFavorites = (movieId) => {
+    const index = state.movies.map((m) => m.id).indexOf(movieId);
+    dispatch({ type: "add-favorite", payload: { movie: state.movies[index] } });
+  };
+ 
   useEffect(() => {
     getMovies().then(movies => {
       console.log(movies);
@@ -56,6 +70,7 @@ const MoviesContextProvider = props => {
         upcoming: state.upcoming,
         toprated: state.toprated,
         nowplaying: state.nowplaying,
+        addToFavorites: addToFavorites,
         setAuthenticated
       }}
     >

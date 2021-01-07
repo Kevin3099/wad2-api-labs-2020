@@ -46,6 +46,7 @@ app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRou
 app.use('/api/users', usersRouter);
 app.use('/api/genres', moviesRouter);
 app.use('/api/upcoming', moviesRouter);
+app.use('api/favorites', usersRouter);
 app.use('/api/toprated', moviesRouter);
 app.use('/api/nowplaying', moviesRouter);
 
