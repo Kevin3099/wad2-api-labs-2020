@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { MoviesContext } from '../contexts/moviesContext';
-import addToFavoritesButton from '../components/Buttons/addToFavoritesButton';
+import { addFavorite } from '../api/movie-api';
 
 export const PublicPage = () => {
     return <h2>Public page</h2>
@@ -12,10 +12,7 @@ export const PublicPage = () => {
     return <>
         <h2>Movies Data </h2>
         <div>
-            {context.movies.map(movie => { return <>{movie.id},{movie.title}<br /></> })}
-            {(movie => {
-                return <addToFavoritesButton movie={movie} />;
-            })}
+            {context.movies.map(movie => { return <>{movie.id},{movie.title},<button onClick={addFavorite(movie.id)}>Add To Favorites</button><br /></> })}
         </div>
     </>
 }
