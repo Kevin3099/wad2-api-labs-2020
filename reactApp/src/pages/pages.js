@@ -16,13 +16,13 @@ export const PublicPage = () => {
         </div>
     </>
 }
-export const Favorites = () => {
+export const Favorites = props => {
     const context = useContext(MoviesContext);
-    const favorites = context.movies.filter(m=>m.favorite);
+    const favorites = context.movies.filter( m => m.favorite )
     return <>
         <h2>Favorites Data </h2>
         <div>
-            {context.movies.map(movie => { return <>{favorites.id},{favorites.title}<br /></> })}
+            {favorites.map(movie => {return <>{movie.id},{movie.title}<br /></> })}
         </div>
     </>
 }

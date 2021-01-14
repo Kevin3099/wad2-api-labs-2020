@@ -60,3 +60,12 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
+
+  export const getFavorites = () => {
+    return fetch(
+      '/api/users/user1/favorites',{headers: {
+        'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    )
+  }

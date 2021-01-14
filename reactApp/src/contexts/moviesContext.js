@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect, useReducer } from "react";
-import { getMovies, getUpcoming, getTopRatedMovies, getNowPlayingMovies, addFavorite } from "../api/movie-api";
+import { getMovies, getUpcoming, getTopRatedMovies, getNowPlayingMovies, addFavorite, getFavorites } from "../api/movie-api";
 
 export const MoviesContext = createContext(null);
 
@@ -12,18 +12,27 @@ const reducer = (state, action) => {
     case "load-toprated":
       return { toprated: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming ], nowplaying: [...state.nowplaying]};
     case "load-nowplaying":
-      return { nowplaying: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming ],toprated: [...state.toprated]}
+      return { nowplaying: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming ],toprated: [...state.toprated]};
+    case "add-favorite":
+      return {
+        movies: state.movies.map((m) =>
+          m.id === action.payload.movie.id ? { ...m, favorite: true } : m
+        ),
+        upcoming: [...state.upcoming],
+        nowplaying: [...state.nowplaying],
+        toprated: [...state.toprated]
+      };
     default:
       return state;
   }
 };
 
 const MoviesContextProvider = props => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], toprated: [], nowplaying: [] });
+  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], toprated: [], nowplaying: [], favorites: [] });
   const [authenticated, setAuthenticated] = useState(false);
 
-  const addToFavorites = (favorite) => {
-   const result = addFavorite(favorite);
+  const addToFavorites = (favorites) => {
+   const result = addFavorite(favorites);
    console.log(result)
   };
  
