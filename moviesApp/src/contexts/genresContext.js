@@ -19,7 +19,7 @@ const GenresContextProvider = props => {
           }}
         >
           {props.children}
-        </GenresContext.Provider>    
+        </GenresContext.Provider>
     )
 }
 

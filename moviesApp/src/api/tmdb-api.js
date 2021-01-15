@@ -1,11 +1,17 @@
+// export const getGenres = () => {
+//   return fetch(
+//      '/api/genres',{headers: {
+//        'Authorization': window.localStorage.getItem('token')
+//     }
+//   }
+//   ).then(res => res.json());
+// };
+
 export const getGenres = () => {
   return fetch(
-    "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-    process.env.REACT_APP_TMDB_KEY +
-    "&language=en-US"
-  )
-    .then(res => res.json())
-    .then(json => json.genres);
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+  ).then(res => res.json())
+  .then(json => json.genres);
 };
 
 export const getMovieReviews = id => {

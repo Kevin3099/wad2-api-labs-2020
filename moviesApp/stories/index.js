@@ -16,6 +16,7 @@ import MovieReviews from "../src/components/movieReviews";
 import MovieCredits from "../src/components/movieCredits";
 import AddToFavoriteButton from "../src/components/buttons/addToFavorites";
 
+
 const sample = {
   adult: false,
   backdrop_path: "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
